@@ -10,7 +10,10 @@ import android.support.v4.app.NotificationCompat;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.RemoteViews;
+
+import com.funakoshi.resolveInfoAsyncLoader.IconImageView;
 
 /**
  * Created by max on 08.01.16.
@@ -31,6 +34,10 @@ public abstract class SurvivableForegroundService extends Service {
             | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
 
     private View overlayView;
+    protected ImageButton overlayImageButton;
+    protected View overlayCircleLayout;
+
+    protected IconImageView[] appsIconImageViews = new IconImageView[5];
 
     public void onCreate() {
         super.onCreate();
@@ -65,7 +72,7 @@ public abstract class SurvivableForegroundService extends Service {
         return START_STICKY;
     }
 
-    private View getOverlayView() {
+    protected View getOverlayView() {
         if (overlayView == null) {
             overlayView = createOverlayView();
         }
@@ -80,6 +87,9 @@ public abstract class SurvivableForegroundService extends Service {
 
         WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
         wm.removeView(overlayView);
+        overlayView = null;
+        overlayImageButton = null;
+        appsIconImageViews = new IconImageView[5];
     }
 
     private void showOverlayView() {
