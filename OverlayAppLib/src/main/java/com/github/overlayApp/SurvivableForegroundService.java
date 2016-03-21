@@ -13,17 +13,15 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.RemoteViews;
 
-import com.funakoshi.resolveInfoAsyncLoader.IconImageView;
-
 /**
  * Created by max on 08.01.16.
  */
 public abstract class SurvivableForegroundService extends Service {
 
-    private static final int NOTIFICATION_ID = 524;
+    private static final int NOTIFICATION_ID = 52488;
     private static final int REQUEST_CODE = 321;
 
-    private static final String CHANGE_STATE_KEY = "change state key";
+    protected static final String CHANGE_STATE_KEY = "change state key";
 
     private boolean stateIsEnable = true;
 
@@ -37,7 +35,7 @@ public abstract class SurvivableForegroundService extends Service {
     protected ImageButton overlayImageButton;
     protected View overlayCircleLayout;
 
-    protected IconImageView[] appsIconImageViews = new IconImageView[5];
+//    protected IconImageView[] appsIconImageViews = new IconImageView[5];
 
     public void onCreate() {
         super.onCreate();
@@ -89,7 +87,6 @@ public abstract class SurvivableForegroundService extends Service {
         wm.removeView(overlayView);
         overlayView = null;
         overlayImageButton = null;
-        appsIconImageViews = new IconImageView[5];
     }
 
     private void showOverlayView() {

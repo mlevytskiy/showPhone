@@ -9,15 +9,14 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:scaleType="centerInside"
-        android:src="@drawable/ic_bucket2"
-        android:layout_gravity="center"
-        android:background="#122630" />
+        android:src="@drawable/ic_launcher"
+        android:layout_gravity="center" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_weight="1"
-        android:text="кнопка поверх экрана"
+        android:text="показать номер тел"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
